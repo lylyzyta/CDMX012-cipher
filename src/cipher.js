@@ -1,32 +1,83 @@
 const cipher = {
-
-  encode: function (a, b, c, d){
-    for (let i = 0; i < a; i++) { // Ciclo para hacerlo tantas veces sea la longitud del msj
-      let text = String(b); //Asegurar que el msjCode sea un string
-      let cambioAsCii = text.charCodeAt(i); // Convierte mi texto en codigo ASCII
-      let formulaMay = (cambioAsCii + Number(c) - 65) % 26 + 65; //Fórmula para ubicar mi letra en ASCII y moverla con el offset
-      d = d.concat(String.fromCharCode(formulaMay)); //console.log(formulaMay);
+  encode: function (offset, msjInput) {
+       if (typeof (offset) === "number" && typeof (msjInput) === "string"){
+        let txt= "";
+        let msjLength = msjInput.length;
+           for (let i = 0; i < msjLength; i++) { //abro for para ciclo de número de caractéres
+           let cambioAsCii = msjInput.charCodeAt(i);
+              if (cambioAsCii >= 97 && cambioAsCii <=122)
+              { //abro if para minúsculas
+              let formMin = (cambioAsCii + offset -97) %26 + 97;
+              let msjoutMin = String.fromCharCode(formMin);
+              txt += msjoutMin;
+              } //cierro if para minúsuclas
+              else if (cambioAsCii >= 65 && cambioAsCii <=90)            
+              { // abro else if de mayúsculas
+              let formMay = (cambioAsCii + offset -65) %26 + 65;
+              let msjoutMay = String.fromCharCode(formMay);
+              txt += msjoutMay;
+              } //cierro if para mayúsculas
+              else if (cambioAsCii >= 32)
+              { // abro else if de espacio
+               let formSpace = cambioAsCii;
+               let msjoutSpace = String.fromCharCode(formSpace);
+               txt += msjoutSpace;
+              } //cierro if para espacio
+              else
+              { //abro else de si no es mayúsculas y minúsculas
+                console.log ("ingrese ms correcto");
+              } //cierro else de si no es mayúsuclas y minúsculas
+       } //cierro for
+       return (txt);
+      } //cierro if de typeof
+       else
+       { //abro else de typerror 
+         throw new TypeError("error");
+      } //cierro else de typeError
       
-      }
-      return d;
+  },//cierro encode
 
-  },
-
-  decode: function (a, b, c, d){
-    for (let i = 0; i < a; i++) { // Ciclo para hacerlo tantas veces sea la longitud del msj
-      let text = String(b); //Asegurar que el msjCode sea un string
-      let cambioAsCii = text.charCodeAt(i); // Convierte mi texto en codigo ASCII
-      let formulaMay = (cambioAsCii - Number(c) - 65) % 26 + 65; //Fórmula para ubicar mi letra en ASCII y moverla con el offset
-      if (formulaMay < 65) {
-        formulaMay = formulaMay + 26
-      }
-      d = d.concat(String.fromCharCode(formulaMay)); //console.log(formulaMay);
-      }
-      return d;
-  }
-  };
-  
-
-
-export default cipher;
-  
+  decode: function (offset, msjInput) {
+    if (typeof (offset) === "number" && typeof (msjInput) === "string"){
+     let txt= "";
+     let msjLength = msjInput.length;
+        for (let i = 0; i < msjLength; i++) { //abro for para ciclo de número de caractéres
+        let cambioAsCii = msjInput.charCodeAt(i);
+           if (cambioAsCii >= 97 && cambioAsCii <=122)
+           { //abro if para minúsculas
+           let formMin = (cambioAsCii - offset -97) %26 + 97;
+           if (formMin < 97) {formMin = formMin +26}
+           let msjoutMin = String.fromCharCode(formMin);
+           txt += msjoutMin;
+           } //cierro if para minúsuclas
+           else if (cambioAsCii >= 65 && cambioAsCii <=90)            
+           { // abro else if de mayúsculas
+           let formMay = (cambioAsCii - offset -65) %26 + 65;
+           if (formMay < 65) {formMay = formMay +26}
+           let msjoutMay = String.fromCharCode(formMay);
+           txt += msjoutMay;
+           } //cierro if para mayúsculas
+           else if (cambioAsCii == 32)
+           { // abro else if de espacio
+           let formSpace = cambioAsCii;
+           let msjoutSpace = String.fromCharCode(formSpace);
+           txt += msjoutSpace;
+           } //cierro if para espacio
+           else
+           { //abro else de si no es mayúsculas y minúsculas
+             console.log("error");
+           } //cierro else de si no es mayúsuclas y minúsculas
+    } //cierro for
+    return (txt);
+   } //cierro if de typeof
+    else
+    { //abro else de typerror 
+      throw new TypeError("error");
+   } //cierro else de typeError
+   
+}//cierro decode
+      
+};//cierro cipher
+ 
+  export default cipher;
+     
