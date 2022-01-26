@@ -1,8 +1,6 @@
 import cipher from './cipher.js';
 
-//console.log(cipher);
-
-  const buttonCode = document.getElementById("buttonCode");
+const buttonCode = document.getElementById("buttonCode");
   buttonCode.addEventListener("click", letCode);//genera esta funcion cuando haya un click en buttonCode
   
   const buttonDecode = document.getElementById("buttonDecode");
@@ -13,7 +11,7 @@ import cipher from './cipher.js';
       let offset = Number (inOffset);
       let inMsj = document.getElementById('inputCode').value; //Toma el valor del mensaje  
       let msjInput = String (inMsj);
-      document.getElementById("imprimeLetra").innerHTML = "Tu mensaje es  " + cipher.encode(offset, msjInput);
+      document.getElementById("printCode").innerHTML = "Tu mensaje es  " + cipher.encode(offset, msjInput);
     }
 
     function letDecode() {
@@ -21,6 +19,7 @@ import cipher from './cipher.js';
       let offset = Number (inOffset);
       let inMsj = document.getElementById('inputCode').value; //Toma el valor del mensaje  
       let msjInput = String (inMsj);
-      document.getElementById("imprimeLetra").innerHTML = "Tu mensaje es  " + cipher.decode(offset, msjInput);
+      document.getElementById("printCode").innerHTML = "Tu mensaje es  " + cipher.decode(offset, msjInput);
+      
     }
     

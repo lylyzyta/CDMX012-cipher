@@ -6,23 +6,30 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root">
-      
-    <h1 class="titulo">Bienvenida</h1>
-      
-      <div id="contenido">
-      <label>¿Cuántas posiciones?</label> <br><br>
+
+    <div class="menu">CIFRADO CÉSAR</div>
+     
+    <div class="header">GENERADOR DE CONTRASEÑAS</div>
+    
+         
+      <div class="contenido1">
+      <label>Ingresa Offset</label> <br><br>
       <input type="text" name="inputNum" id="inputNum" /><br><br>
-      <label>Ingrese un texto</label><br><br>
-      <input type="text" name="inputCode" id="inputCode" /><br><br>
-      <button id="buttonCode">Cifrar</button>
-      <button id="buttonDecode">Descifrar</button><br><br>
-      <p id="txtInvalid"></p>
-      <p id="imprimeLetra"></p>
-      
       </div>
-    </div>
+
+      <div class="contenido2">
+      <label>Ingresa un texto</label><br><br>
+      <input type="text" name="inputCode" id="inputCode" /><br><br>
+      </div>
+
+      <div class="contenido3">
+      <label>Vamos a</label><br><br>
+       <button id="buttonCode">Cifrar</button>
+      <button id="buttonDecode">Descifrar</button><br><br>
+      <p id="printCode"></p>
+      </div>
+
+     </body>
     <script src="index.js" type="module"></script>
-  </body>
-  
+   
 </html>
