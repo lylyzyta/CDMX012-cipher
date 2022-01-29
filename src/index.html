@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--indica al browser como controlar las dimensiones o escalas de la página-->
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-    <div class="menu">CIFRADO CÉSAR</div>
-     
-    <div class="header">GENERADOR DE CONTRASEÑAS</div>
-    
-         
-      <div class="contenido1">
-      <label>Ingresa Offset</label> <br><br>
-      <input type="text" name="inputNum" id="inputNum" /><br><br>
-      </div>
-
-      <div class="contenido2">
-      <label>Ingresa un texto</label><br><br>
-      <input type="text" name="inputCode" id="inputCode" /><br><br>
-      </div>
-
-      <div class="contenido3">
-      <label>Vamos a</label><br><br>
-       <button id="buttonCode">Cifrar</button>
-      <button id="buttonDecode">Descifrar</button><br><br>
-      <p id="printCode"></p>
-      </div>
-
-     </body>
-    <script src="index.js" type="module"></script>
-   
+      <header>
+        <hgroup>
+          <h1 class= "title"> CIFRADO CÉSAR </h1>
+          <h2 class = "header"> GENERADOR DE CONTRASEÑAS </h2>
+        </hgroup>
+      </header>
+      <div class = "row" >
+      <!--<nav>
+      MENU DE NAVEGACION
+      </nav>-->
+        <section class = "col-12 content">
+            <article class = "col-6 content1">
+               <label>Ingresa Offset</label> <br><br>
+                <input type="text" name="inputNum" id="inputNum" />
+            </article>
+            <article class = "col-6 content2">
+                <label>Ingresa un texto</label><br><br>
+                <input type="text" name="inputCode" id="inputCode" /><br><br>
+            </article>
+            <article class = "col-12 content3">
+                <label>Vamos a</label><br><br>
+                <button id="buttonCode">Cifrar</button>
+                <button id="buttonDecode">Descifrar</button><br><br>
+                <p id="printCode"></p>
+            </article>  
+            </section>
+          </div>
+            <footer class = "foot">
+             Gracias por tu visita @lylyzyta
+            </footer>
+      
+        <script src="index.js" type="module"></script>
+  </body>
 </html>
+

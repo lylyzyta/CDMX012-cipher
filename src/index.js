@@ -11,7 +11,7 @@ const buttonCode = document.getElementById("buttonCode");
       let offset = Number (inOffset);
       let inMsj = document.getElementById('inputCode').value; //Toma el valor del mensaje  
       let msjInput = String (inMsj);
-      document.getElementById("printCode").innerHTML = "Tu mensaje es  " + cipher.encode(offset, msjInput);
+      document.getElementById("printCode").innerHTML = "Tu contraseña  es  " + cipher.encode(offset, msjInput);
     }
 
     function letDecode() {
@@ -19,7 +19,7 @@ const buttonCode = document.getElementById("buttonCode");
       let offset = Number (inOffset);
       let inMsj = document.getElementById('inputCode').value; //Toma el valor del mensaje  
       let msjInput = String (inMsj);
-      document.getElementById("printCode").innerHTML = "Tu mensaje es  " + cipher.decode(offset, msjInput);
+      document.getElementById("printCode").innerHTML = "Tu contraseña es  " + cipher.decode(offset, msjInput);
       
     }
     
